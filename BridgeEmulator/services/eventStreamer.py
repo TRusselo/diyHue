@@ -21,7 +21,7 @@ def streamV2Events():
     def generate():
         counter = 1000
         yield f": hi\n\n"
-        while counter > 0:  # ensure we stop at some point
+        while True:  # ensure we stop at some point
             if len(HueObjects.eventstream) > 0:
                 for index, messages in enumerate(HueObjects.eventstream):
                     yield f"id: {int(time()) }:{index}\ndata: {json.dumps([messages], separators=(',', ':'))}\n\n"
